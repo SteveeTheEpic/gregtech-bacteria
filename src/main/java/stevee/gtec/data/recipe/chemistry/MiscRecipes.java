@@ -12,6 +12,8 @@ import java.util.function.Consumer;
 
 public class MiscRecipes {
     public static void init(Consumer<FinishedRecipe> provider) {
+
+        /*
         VanillaRecipeHelper.addShapedRecipe(provider, GTExtendedChem.id("bacteria_bath"),
                 GTECMachines.BACTERIA_BATH.asStack(1),
                 "FFF",
@@ -21,6 +23,10 @@ public class MiscRecipes {
                 "F", GTBlocks.CASING_TEMPERED_GLASS.asStack(),
                 "P", GTItems.ELECTRIC_PUMP_LuV,
                 "G", GTItems.PETRI_DISH);
+
+         */
+
+
     }
 
 }

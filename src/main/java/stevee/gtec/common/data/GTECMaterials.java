@@ -677,6 +677,12 @@ public class GTECMaterials {
             .buildAndRegister()
             .setFormula("Nd2O3", true);
 
+    public static final Material Lu = new Material.Builder(GTExtendedChem.id("lud"))
+            .dust().iconSet(METALLIC)
+            .color(0xFFFFFF)
+            .buildAndRegister()
+            .setFormula("Lud", true);
+
 }
 
 // The New Platinum Line Stuff

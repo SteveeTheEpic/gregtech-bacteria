@@ -48,6 +48,16 @@ public class GTECItems {
             .defaultModel()
             .register();
 
+    public static final ItemEntry<Item> BACTERIA_PETRI_DISH = REGISTRATE.item("bacteria_petri_dish", Item::new)
+            .lang("Bacteria Petri Dish")
+            .defaultModel()
+            .register();
+
+    public static final ItemEntry<Item> USED_PETRI_DISH = REGISTRATE.item("used_petri_dish", Item::new)
+            .lang("Used Petri Dish")
+            .defaultModel()
+            .register();
+
     public static void init() {
     }
 }

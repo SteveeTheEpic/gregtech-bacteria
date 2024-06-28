@@ -19,6 +19,11 @@ public class LangHandler extends com.gregtechceu.gtceu.data.lang.LangHandler {
         provider.add("gtec.recipe.cleanerroom.display_name", "Ultra-sterile Cleanroom");
         initItemTooltips(provider);
 
+        provider.add("gtec.gui.bacteria_bath", "Bacteria Bath");
+        provider.add("block.gtec.bacteria_bath", "Bacteria Bath Controller");
+        provider.add("item.gtec.bacteria_petri_dish", "Bacteria Petri Dish");
+        provider.add("item.gtec.used:petri_dish", "Used Petri Dish");
+
     }
     private static void initItemTooltips(RegistrateLangProvider provider) {
 

@@ -26,6 +26,7 @@ import java.util.Objects;
 
 import static com.gregtechceu.gtceu.api.GTValues.LuV;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_STAINLESS_CLEAN;
+import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_STEEL_SOLID;
 import static stevee.gtec.registry.GTECRegistries.REGISTRATE;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 
@@ -50,18 +51,38 @@ public class GTECMachines {
                             .or(abilities(PartAbility.EXPORT_ITEMS))
                             .or(abilities(PartAbility.EXPORT_FLUIDS))
                             .or(abilities(PartAbility.INPUT_ENERGY))
-                            .or(autoAbilities(true, true, false)))
+                            .or(autoAbilities(true, false, false)))
                     .where('C', controller(blocks(definition.getBlock())))
                     .where('S', blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
-                    .where('F', blocks(Objects.requireNonNull(GTBlocks.MATERIAL_BLOCKS.get(TagPrefix.frameGt, GTMaterials.Naquadah)).getUnchecked()))
+                    .where('F', blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, GTMaterials.NaquadahAlloy)))
                     .where('M', abilities(PartAbility.MUFFLER))
                     .where(' ', any())
                     .build())
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_clean_stainless_steel"),
                     GTCEu.id("block/multiblock/implosion_compressor"))
             .compassSections(GTCompassSections.TIER[LuV])
             .compassNodeSelf()
             .register();
+
+public static final MultiblockMachineDefinition COLLECTOR = REGISTRATE.multiblock("collector", WorkableElectricMultiblockMachine::new)
+        .rotationState(RotationState.NON_Y_AXIS)
+        .appearanceBlock(() -> CASING_STEEL_SOLID.get())
+        .recipeType(GTECRecipeTypes.COLLECTOR)
+        .pattern(definition -> FactoryBlockPattern.start()
+                .aisle("HHHH", "HHHH", "HHHH")
+                .aisle("HHHH", "H  H", "HHHH")
+                .aisle("HHHH", "HCHH", "HHHH")
+                .where('H', blocks(CASING_STEEL_SOLID.get())
+                        .or(autoAbilities(true, false, false))
+                        .or(abilities(PartAbility.EXPORT_ITEMS))
+                        .or(abilities(PartAbility.IMPORT_ITEMS))
+                        .or(abilities(PartAbility.INPUT_ENERGY))
+                        .or(abilities(PartAbility.INPUT_LASER)))
+                .where('C', controller(blocks(definition.getBlock())))
+                .build())
+        .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
+                GTCEu.id("block/multiblock/implosion_compressor"))
+        .register();
 
 
     public static void init() {
