@@ -35,11 +35,11 @@ public class GTExtendedChem {
         ConfigHolder.init(); // Forcefully init GT config because fabric doesn't allow dependents to load after dependencies
 
         //.init();
-        GTECRecipeTypes.init();
         GTECItems.init();
         GTECCreativeModeTabs.init();
         GTECMachines.init();
         GTECDatagen.init();
+        GTECCompassSections.init();
         GTECRegistries.REGISTRATE.registerRegistrate();
     }
 
@@ -56,6 +56,7 @@ public class GTExtendedChem {
     public void registerMaterials(MaterialEvent event) {
         GTECMaterials.init();
     }
+    public void registerElements(MaterialEvent event) {GTECElements.init();}
 
     @SubscribeEvent
     public void modifyMaterials(PostMaterialEvent event) {
@@ -63,13 +64,9 @@ public class GTExtendedChem {
     }
 
     @SubscribeEvent
-    public void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
-        GTECRecipeTypes.init();
-    }
+    public void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {GTECRecipeTypes.init();}
 
     @SubscribeEvent
-    public void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        GTECMachines.init();
-    }
+    public void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {GTECMachines.init();}
 }
 
