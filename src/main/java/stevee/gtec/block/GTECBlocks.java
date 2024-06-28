@@ -1,9 +1,9 @@
 package stevee.gtec.block;
 
-/*
-import argent_matter.gtec.GTExtendedChem;
-import argent_matter.gtec.registry.GTECRegistries;
-import argent_matter.util.GTECUtil;
+
+import stevee.gtec.GTExtendedChem;
+import stevee.gtec.registry.GTECRegistries;
+import stevee.util.GTECUtil;
 import com.gregtechceu.gtceu.api.block.ICoilType;
 import com.gregtechceu.gtceu.api.block.IFilterType;
 import com.gregtechceu.gtceu.api.block.RendererBlock;
@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import static argent_matter.gtec.registry.GTECRegistries.REGISTRATE;
+import static stevee.gtec.registry.GTECRegistries.REGISTRATE;
 
 
 @SuppressWarnings("unused")
@@ -54,4 +54,3 @@ public class GTECBlocks {
 }
 
 
- */

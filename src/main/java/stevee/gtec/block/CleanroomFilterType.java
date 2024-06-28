@@ -1,7 +1,7 @@
 package stevee.gtec.block;
 
-/*
-import argent_matter.gtec.GTExtendedChem;
+
+import stevee.gtec.GTExtendedChem;
 import com.gregtechceu.gtceu.api.block.IFilterType;
 import com.gregtechceu.gtceu.api.machine.multiblock.CleanroomType;
 import org.jetbrains.annotations.NotNull;
@@ -21,4 +21,3 @@ public class CleanroomFilterType implements IFilterType {
     }
 }
 
- */

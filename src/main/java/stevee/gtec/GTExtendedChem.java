@@ -1,5 +1,6 @@
 package stevee.gtec;
 
+import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import stevee.gtec.common.data.*;
 import stevee.gtec.registry.GTECCreativeModeTabs;
 import stevee.gtec.registry.GTECRegistries;
@@ -30,6 +31,9 @@ public class GTExtendedChem {
         GTExtendedChem.init();
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.register(this);
+
+        bus.addGenericListener(GTRecipeType.class, this::registerRecipeTypes);
+        bus.addGenericListener(MachineDefinition.class, this::registerMachines);
     }
 
     public static void init() {
@@ -39,11 +43,19 @@ public class GTExtendedChem {
         GTECCompassSections.init();
         GTECItems.init();
         GTECCreativeModeTabs.init();
-        GTECMachines.init();
         GTECDatagen.init();
         GTECRegistries.REGISTRATE.registerRegistrate();
     }
 
+    @SubscribeEvent
+    public void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
+        GTECRecipeTypes.init();
+    }
+
+    @SubscribeEvent
+    public void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
+        GTECMachines.init();
+    }
 
     public static ResourceLocation id(String path) {
         return new ResourceLocation(MOD_ID, path);
@@ -66,16 +78,6 @@ public class GTExtendedChem {
     @SubscribeEvent
     public void modifyMaterials(PostMaterialEvent event) {
         GTECMaterials.modifyMaterials();
-    }
-
-    @SubscribeEvent
-    public void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
-        GTECRecipeTypes.init();
-    }
-
-    @SubscribeEvent
-    public void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        GTECMachines.init();
     }
 
     @SubscribeEvent

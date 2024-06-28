@@ -19,23 +19,12 @@ import static com.gregtechceu.gtceu.common.data.GTRecipeTypes.MULTIBLOCK;
 
 public class GTECRecipeTypes {
 
-    static {
-        GTRegistries.RECIPE_TYPES.unfreeze();
-    }
-
-
     public static final GTRecipeType BACTERIA_RECIPES = register("bacteria_bath", MULTIBLOCK)
             .setMaxIOSize(1, 1, 1, 1)
             .setEUIO(IO.IN)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, ProgressTexture.FillDirection.LEFT_TO_RIGHT)
             .setSound(GTSoundEntries.CHEMICAL);
     public static void init() {
-        ModLoader.get().postEvent(new GTCEuAPI.RegisterEvent<>(GTRegistries.RECIPE_TYPES, GTRecipeType.class));
-        if (GTCEu.isKubeJSLoaded()) {
-            GTRegistryInfo.registerFor(GTRegistries.RECIPE_TYPES.getRegistryName());
-        }
-        GTRegistries.RECIPE_TYPES.freeze();
-
     }
 
     public static GTRecipeType register(String name, String group, RecipeType<?>... proxyRecipes) {

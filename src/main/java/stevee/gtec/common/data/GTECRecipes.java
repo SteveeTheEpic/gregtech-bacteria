@@ -1,6 +1,7 @@
 package stevee.gtec.common.data;
 
 
+import stevee.gtec.data.recipe.chemistry.MiscRecipes;
 import stevee.gtec.data.recipe.disabled.BastnasiteChainRecipes;
 import stevee.gtec.data.recipe.disabled.MonaziteChainRecipes;
 import stevee.gtec.data.recipe.disabled.PlatinumLineRecipes;
@@ -16,6 +17,7 @@ public class GTECRecipes {
         PlatinumLineRecipes.init(provider);
         MonaziteChainRecipes.init(provider);
         BastnasiteChainRecipes.init(provider);
+        MiscRecipes.init(provider);
 
     }
 }
