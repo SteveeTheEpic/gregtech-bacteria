@@ -42,7 +42,7 @@ public class GTECMachines {
             .pattern(definition -> FactoryBlockPattern.start()
                     .aisle("GGGGG", "F   F", "F   F", "F   F", "GGGGG")
                     .aisle("GGGGG", " SSS ", " SSS ", " SSS ", "GGGGG")
-                    .aisle("GGGGG", " S S ", " S S ", " S S ", "GGMGG")
+                    .aisle("GGGGG", " S S ", " S S ", " S S ", "GGGGG")
                     .aisle("GGGGG", " SSS ", " SSS ", " SSS ", "GGGGG")
                     .aisle("GGCGG", "F   F", "F   F", "F   F", "GGGGG")
                     .where('G', blocks(CASING_STAINLESS_CLEAN.get()).setMinGlobalLimited(40)
@@ -55,7 +55,6 @@ public class GTECMachines {
                     .where('C', controller(blocks(definition.getBlock())))
                     .where('S', blocks(GTBlocks.CASING_TEMPERED_GLASS.get()))
                     .where('F', blocks(ChemicalHelper.getBlock(TagPrefix.frameGt, GTMaterials.NaquadahAlloy)))
-                    .where('M', abilities(PartAbility.MUFFLER))
                     .where(' ', any())
                     .build())
             .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_clean_stainless_steel"),
