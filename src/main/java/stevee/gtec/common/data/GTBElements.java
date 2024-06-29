@@ -7,7 +7,7 @@ import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.integration.kjs.GTRegistryInfo;
 import net.minecraftforge.fml.ModLoader;
 
-public class GTECElements {
+public class GTBElements {
 
     static {
         GTRegistries.ELEMENTS.unfreeze();
@@ -15,6 +15,7 @@ public class GTECElements {
 
     public static final Element Lu = createAndRegister(-5, 0, -1, null, "Lu", "Lud", false);
     public static final Element Retardium = createAndRegister(69420, 140000, 1, "Trinium", "Retardium", "Rt", false);
+    public static final Element Susium = createAndRegister(-1, 0, -1, null, "Susium", "ඞ", false);
 
 
     public static Element createAndRegister(long protons, long neutrons, long halfLifeSeconds, String decayTo,

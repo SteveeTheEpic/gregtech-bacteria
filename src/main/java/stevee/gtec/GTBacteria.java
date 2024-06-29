@@ -1,9 +1,8 @@
 package stevee.gtec;
 
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import stevee.gtec.common.data.*;
-import stevee.gtec.registry.GTECCreativeModeTabs;
-import stevee.gtec.registry.GTECRegistries;
+import stevee.gtec.registry.GTBCreativeModeTabs;
+import stevee.gtec.registry.GTBRegistries;
 import stevee.gtec.data.GTECDatagen;
 import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.chemical.material.event.MaterialEvent;
@@ -20,15 +19,15 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(GTExtendedChem.MOD_ID)
-public class GTExtendedChem {
-    public static final String MOD_ID = "gtec";
+@Mod(GTBacteria.MOD_ID)
+public class GTBacteria {
+    public static final String MOD_ID = "gtb";
 
-    public static final CleanroomType CLEANER_ROOM = new CleanroomType("cleanerroom", "gtec.recipe.cleanerroom.displayname");
+    public static final CleanroomType CLEANER_ROOM = new CleanroomType("cleanerroom", "gtb.recipe.cleanerroom.displayname");
     public static MaterialRegistry MATERIAL_REGISTRY;
 
-    public GTExtendedChem() {
-        GTExtendedChem.init();
+    public GTBacteria() {
+        GTBacteria.init();
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.register(this);
 
@@ -40,21 +39,21 @@ public class GTExtendedChem {
         ConfigHolder.init(); // Forcefully init GT config because fabric doesn't allow dependents to load after dependencies
 
         //.init();
-        GTECCompassSections.init();
-        GTECItems.init();
-        GTECCreativeModeTabs.init();
+        GTBCompassSections.init();
+        GTBItems.init();
+        GTBCreativeModeTabs.init();
         GTECDatagen.init();
-        GTECRegistries.REGISTRATE.registerRegistrate();
+        GTBRegistries.REGISTRATE.registerRegistrate();
     }
 
     @SubscribeEvent
     public void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
-        GTECRecipeTypes.init();
+        GTBRecipeTypes.init();
     }
 
     @SubscribeEvent
     public void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        GTECMachines.init();
+        GTBMachines.init();
     }
 
     public static ResourceLocation id(String path) {
@@ -62,27 +61,27 @@ public class GTExtendedChem {
     }
     @SubscribeEvent
     public void registerMaterialRegistry(MaterialRegistryEvent event) {
-        MATERIAL_REGISTRY = GTCEuAPI.materialManager.createRegistry(GTExtendedChem.MOD_ID);
+        MATERIAL_REGISTRY = GTCEuAPI.materialManager.createRegistry(GTBacteria.MOD_ID);
     }
 
     @SubscribeEvent
     public void registerMaterials(MaterialEvent event) {
-        GTECMaterials.init();
+        GTBMaterials.init();
     }
 
     @SubscribeEvent
     public void registerElements(MaterialEvent event) {
-        GTECElements.init();
+        GTBElements.init();
     }
 
     @SubscribeEvent
     public void modifyMaterials(PostMaterialEvent event) {
-        GTECMaterials.modifyMaterials();
+
     }
 
     @SubscribeEvent
     public void registerCompassSections(GTCEuAPI.RegisterEvent<ResourceLocation, CompassNode> event) {
-        GTECCompassSections.init();
+        GTBCompassSections.init();
     }
 }
 

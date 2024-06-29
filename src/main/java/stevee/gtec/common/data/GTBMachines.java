@@ -3,42 +3,33 @@ package stevee.gtec.common.data;
 
 
 import com.gregtechceu.gtceu.GTCEu;
-import com.gregtechceu.gtceu.api.GTCEuAPI;
 import com.gregtechceu.gtceu.api.data.RotationState;
 import com.gregtechceu.gtceu.api.data.chemical.ChemicalHelper;
 import com.gregtechceu.gtceu.api.data.tag.TagPrefix;
-import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.machine.multiblock.WorkableElectricMultiblockMachine;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
-import com.gregtechceu.gtceu.api.registry.GTRegistries;
 import com.gregtechceu.gtceu.common.data.GTBlocks;
 import com.gregtechceu.gtceu.common.data.GTCompassSections;
 import com.gregtechceu.gtceu.common.data.GTMaterials;
-import com.gregtechceu.gtceu.common.machine.multiblock.part.MufflerPartMachine;
-import com.gregtechceu.gtceu.integration.kjs.GTRegistryInfo;
-import com.ibm.icu.text.MessagePattern;
-import net.minecraftforge.fml.ModLoader;
 
-
-import java.util.Objects;
 
 import static com.gregtechceu.gtceu.api.GTValues.LuV;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_STAINLESS_CLEAN;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_STEEL_SOLID;
-import static stevee.gtec.registry.GTECRegistries.REGISTRATE;
+import static stevee.gtec.registry.GTBRegistries.REGISTRATE;
 import static com.gregtechceu.gtceu.api.pattern.Predicates.*;
 
 @SuppressWarnings({"Convert2MethodRef", "FunctionalExpressionCanBeFolded", "unused"})
-public class GTECMachines {
+public class GTBMachines {
 
 
 
     public static final MultiblockMachineDefinition BACTERIA_BATH = REGISTRATE.multiblock("bacteria_bath", WorkableElectricMultiblockMachine::new)
             .rotationState(RotationState.NON_Y_AXIS)
             .appearanceBlock(() -> CASING_STAINLESS_CLEAN.get())
-            .recipeType(GTECRecipeTypes.BACTERIA_RECIPES)
+            .recipeType(GTBRecipeTypes.BACTERIA_RECIPES)
             .pattern(definition -> FactoryBlockPattern.start()
                     .aisle("GGGGG", "F   F", "F   F", "F   F", "GGGGG")
                     .aisle("GGGGG", " SSS ", " SSS ", " SSS ", "GGGGG")
@@ -66,7 +57,7 @@ public class GTECMachines {
 public static final MultiblockMachineDefinition COLLECTOR = REGISTRATE.multiblock("collector", WorkableElectricMultiblockMachine::new)
         .rotationState(RotationState.NON_Y_AXIS)
         .appearanceBlock(() -> CASING_STEEL_SOLID.get())
-        .recipeType(GTECRecipeTypes.COLLECTOR)
+        .recipeType(GTBRecipeTypes.COLLECTOR)
         .pattern(definition -> FactoryBlockPattern.start()
                 .aisle("HHHH", "HHHH", "HHHH")
                 .aisle("HHHH", "H  H", "HHHH")

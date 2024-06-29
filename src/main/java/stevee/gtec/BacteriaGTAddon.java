@@ -1,7 +1,7 @@
 package stevee.gtec;
 
-import stevee.gtec.common.data.GTECRecipes;
-import stevee.gtec.registry.GTECRegistries;
+import stevee.gtec.common.data.GTBRecipes;
+import stevee.gtec.registry.GTBRegistries;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.addon.events.MaterialCasingCollectionEvent;
@@ -12,10 +12,10 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import java.util.function.Consumer;
 
 @GTAddon
-public class GTExtendedChemGTAddon implements IGTAddon {
+public class BacteriaGTAddon implements IGTAddon {
     @Override
     public GTRegistrate getRegistrate() {
-        return GTECRegistries.REGISTRATE;
+        return GTBRegistries.REGISTRATE;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class GTExtendedChemGTAddon implements IGTAddon {
 
     @Override
     public String addonModId() {
-        return GTExtendedChem.MOD_ID;
+        return GTBacteria.MOD_ID;
     }
 
     @Override
@@ -58,6 +58,6 @@ public class GTExtendedChemGTAddon implements IGTAddon {
 
     @Override
     public void addRecipes(Consumer<FinishedRecipe> provider) {
-        GTECRecipes.init(provider);
+        GTBRecipes.init(provider);
     }
 }
