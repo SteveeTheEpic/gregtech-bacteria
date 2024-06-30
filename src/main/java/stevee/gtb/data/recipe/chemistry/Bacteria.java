@@ -23,24 +23,19 @@ public class Bacteria {
                 .outputItems(GTBItems.BACTERIA_PETRI_DISH, 1)
                 .duration(400).EUt(VA[LuV]).save(provider);
 
-        BACTERIA_RECIPES.recipeBuilder(GTBacteria.id("make_bacteria_from_bacteria_petri_dishes"))
+        BACTERIA_RECIPES.recipeBuilder(GTBacteria.id("make_bacteria"))
                 .notConsumable(GTBItems.BACTERIA_PETRI_DISH)
                 .circuitMeta(0)
                 .outputFluids(GTMaterials.Bacteria.getFluid(1))
                 .duration(800).EUt(VA[LuV]).save(provider);
 
-        BACTERIA_RECIPES.recipeBuilder(GTBacteria.id("make_more_bacteria_from_bacteria_petri_dish"))
+        BACTERIA_RECIPES.recipeBuilder(GTBacteria.id("make_more_bacteria"))
+                .circuitMeta(1)
                 .notConsumable(GTBItems.BACTERIA_PETRI_DISH)
                 .inputItems(GTItems.BIO_CHAFF, 4)
                 .outputFluids(Bacteria.getFluid(4))
                 .duration(200).EUt(VA[LuV]).save(provider);
 
-
-        AUTOCLAVE_RECIPES.recipeBuilder(GTBacteria.id("clean_used_petri_dishes"))
-                .inputItems(GTBItems.USED_PETRI_DISH, 1)
-                .inputFluids(DistilledWater.getFluid(25))
-                .outputItems(GTItems.PETRI_DISH, 1)
-                .duration(200).EUt(VA[LuV]).save(provider);
 
         AUTOCLAVE_RECIPES.recipeBuilder(GTBacteria.id("sterilize_petri_dishes"))
                 .inputItems(GTItems.PETRI_DISH, 1)

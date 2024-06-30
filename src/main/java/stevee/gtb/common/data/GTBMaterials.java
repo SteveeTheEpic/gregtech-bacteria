@@ -17,7 +17,7 @@ public class GTBMaterials {
             .buildAndRegister()
             .setFormula("Lud", true);
 
-    public static final Material Susium_Ingot = new Material.Builder(GTBacteria.id("susium"))
+    public static final Material Susium = new Material.Builder(GTBacteria.id("susium"))
             .dust().color(0xff0037)
             .iconSet(SHINY)
             .buildAndRegister()
