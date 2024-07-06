@@ -73,28 +73,6 @@ public static final MultiblockMachineDefinition COLLECTOR = REGISTRATE.multibloc
                 GTCEu.id("block/multiblock/implosion_compressor"))
         .register();
 
-    public static final MultiblockMachineDefinition BACTERIA_GENERATOR = REGISTRATE.multiblock("bacteria_generator", WorkableElectricMultiblockMachine::new)
-            .rotationState(RotationState.NON_Y_AXIS)
-            .appearanceBlock(() -> HIGH_POWER_CASING.get())
-            .recipeType(GTBRecipeTypes.BACTERIA_GENERATOR)
-            .pattern(definition -> FactoryBlockPattern.start()
-                    .aisle("HHHH", "HHHH", "HHHH")
-                    .aisle("HHHH", "R  M", "HTTH")
-                    .aisle("HHHH", "HCHH", "HHHH")
-                    .where('H', blocks(HIGH_POWER_CASING.get())
-                            .or(autoAbilities(true, false, false))
-                            .or(abilities(PartAbility.IMPORT_ITEMS))
-                            .or(abilities(PartAbility.IMPORT_FLUIDS))
-                            .or(abilities(PartAbility.OUTPUT_ENERGY))
-                            .or(abilities(PartAbility.OUTPUT_LASER)))
-                    .where('C', controller(blocks(definition.getBlock())))
-                    .where('M', abilities(PartAbility.MUFFLER))
-                    .where('R', abilities(PartAbility.ROTOR_HOLDER))
-                    .where('T', blocks(CASING_TEMPERED_GLASS.get()))
-                    .build())
-            .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
-                    GTCEu.id("block/multiblock/implosion_compressor"))
-            .register();
 
 
     public static void init() {

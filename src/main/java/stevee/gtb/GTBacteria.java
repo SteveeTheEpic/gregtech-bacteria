@@ -23,7 +23,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class GTBacteria {
     public static final String MOD_ID = "gtb";
 
-    public static final CleanroomType CLEANER_ROOM = new CleanroomType("cleanerroom", "gtb.recipe.cleanerroom.displayname");
     public static MaterialRegistry MATERIAL_REGISTRY;
 
     public GTBacteria() {
@@ -40,6 +39,7 @@ public class GTBacteria {
 
         //.init();
         GTBCompassSections.init();
+        GTBBlocks.init();
         GTBItems.init();
         GTBCreativeModeTabs.init();
         GTECDatagen.init();

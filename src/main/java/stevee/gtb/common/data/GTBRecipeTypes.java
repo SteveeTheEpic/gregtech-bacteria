@@ -28,12 +28,6 @@ public class GTBRecipeTypes {
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, ProgressTexture.FillDirection.LEFT_TO_RIGHT)
             .setSound(GTSoundEntries.SUS_RECORD);
 
-
-    public static final GTRecipeType BACTERIA_GENERATOR = register("bacteria_generator", MULTIBLOCK)
-            .setMaxIOSize(1, 0, 1, 0)
-            .setEUIO(IO.OUT)
-            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, ProgressTexture.FillDirection.LEFT_TO_RIGHT)
-            .setSound(GTSoundEntries.COMBUSTION);
     public static void init() {
     }
 

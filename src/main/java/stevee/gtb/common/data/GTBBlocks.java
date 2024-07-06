@@ -10,6 +10,9 @@ public class GTBBlocks {
         REGISTRATE.creativeModeTab(() -> GTBCreativeModeTabs.ITEM);
     }
 
+    public static void init() {
+
+    }
 
 
 
