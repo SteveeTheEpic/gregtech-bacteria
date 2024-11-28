@@ -57,6 +57,6 @@ license = "LGPLv3" # Want to make your mod open source? Check out https://choose
     [[dependencies.gtb]]
         modId = "gtceu"
         mandatory = true
-        versionRange = "[1.0.16,)"
+        versionRange = "[1.5.3,)"
         ordering = "AFTER"
         side = "BOTH"

@@ -28,10 +28,6 @@ public class BacteriaGTAddon implements IGTAddon {
     }
 
     @Override
-    public void registerTagPrefixes() {
-    }
-
-    @Override
     public void registerElements() {
         IGTAddon.super.registerElements();
     }
@@ -39,11 +35,6 @@ public class BacteriaGTAddon implements IGTAddon {
     @Override
     public void registerCovers() {
         IGTAddon.super.registerCovers();
-    }
-
-    @Override
-    public boolean requiresHighTier() {
-        return false;
     }
 
     @Override

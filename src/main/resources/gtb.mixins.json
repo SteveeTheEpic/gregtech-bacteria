@@ -3,12 +3,8 @@
   "package": "stevee.gtb.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
-  "mixins": [
-    "GTOresAccessor",
-    "GTOresMixin"
-  ],
-  "client": [
-  ],
+  "mixins": [],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

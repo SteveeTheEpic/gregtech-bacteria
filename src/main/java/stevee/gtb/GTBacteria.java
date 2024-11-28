@@ -38,7 +38,6 @@ public class GTBacteria {
         ConfigHolder.init(); // Forcefully init GT config because fabric doesn't allow dependents to load after dependencies
 
         //.init();
-        GTBCompassSections.init();
         GTBBlocks.init();
         GTBItems.init();
         GTBCreativeModeTabs.init();
@@ -64,24 +63,11 @@ public class GTBacteria {
         MATERIAL_REGISTRY = GTCEuAPI.materialManager.createRegistry(GTBacteria.MOD_ID);
     }
 
-    @SubscribeEvent
-    public void registerMaterials(MaterialEvent event) {
-        GTBMaterials.init();
-    }
-
-    @SubscribeEvent
-    public void registerElements(MaterialEvent event) {
-        GTBElements.init();
-    }
 
     @SubscribeEvent
     public void modifyMaterials(PostMaterialEvent event) {
 
     }
 
-    @SubscribeEvent
-    public void registerCompassSections(GTCEuAPI.RegisterEvent<ResourceLocation, CompassNode> event) {
-        GTBCompassSections.init();
-    }
 }
 

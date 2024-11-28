@@ -1,8 +1,5 @@
 {
   "block.gtb.bacteria_bath": "Bacteria Bath",
-  "block.gtb.collector": "Collector",
   "item.gtb.bacteria_petri_dish": "Bacteria Petri Dish",
-  "item.gtb.sterile_petri_dish": "Starile Petri Dish",
-  "material.gtb.lud": "Lud",
-  "material.gtb.susium": "Susium"
+  "item.gtb.sterile_petri_dish": "Sterile Petri Dish"
 }

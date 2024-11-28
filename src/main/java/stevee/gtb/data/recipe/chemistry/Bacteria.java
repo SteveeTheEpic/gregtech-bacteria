@@ -25,7 +25,6 @@ public class Bacteria {
 
         BACTERIA_RECIPES.recipeBuilder(GTBacteria.id("make_bacteria"))
                 .notConsumable(GTBItems.BACTERIA_PETRI_DISH)
-                .circuitMeta(0)
                 .outputFluids(GTMaterials.Bacteria.getFluid(1))
                 .duration(800).EUt(VA[LuV]).save(provider);
 
