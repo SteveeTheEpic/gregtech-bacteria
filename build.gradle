@@ -78,20 +78,28 @@ configurations {
 
 repositories {
     mavenLocal()
-    // mavens for Forge-exclusives
-    maven { url = "https://api.modrinth.com/maven" } // Jade
-    maven { url = "https://maven.theillusivec4.top/" } // Curios
-    maven { // Create Forge and Registrate Forge
-        url = "https://maven.tterrag.com/"
+    flatDir {
+        dir 'libs'
+    }
+    mavenCentral()
+    maven {
+        name = 'GTCEu Maven'
+        url = 'https://maven.gtceu.com'
         content {
-            includeGroup("com.tterrag.registrate")
-            includeGroup("com.simibubi.create")
+            includeGroup 'com.gregtechceu.gtceu'
         }
     }
-    maven { url = "https://maven.parchmentmc.org" } // Parchment mappings
-    maven { url = "https://maven.quiltmc.org/repository/release" } // Quilt Mappings
-    maven { // TOP
-        url "https://maven.k-4u.nl"
+    maven {
+        name 'FirstDarkDev'
+        url "https://maven.firstdarkdev.xyz/snapshots/"
+    }
+    maven {
+        name 'Quilt'
+        url 'https://maven.quiltmc.org/repository/release/'
+    }
+    maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
     }
     maven {
         // saps.dev Maven (KubeJS and Rhino)
@@ -100,84 +108,67 @@ repositories {
             includeGroup "dev.latvian.mods"
         }
     }
-    mavenLocal()
-    mavenCentral()
-    maven { url = "https://maven.shedaniel.me/" } // Cloth Config, REI
+    maven { // Registrate
+        url = "https://maven.tterrag.com/"
+        content {
+            // need to be specific here due to version overlaps
+            includeGroup("com.jozufozu.flywheel")
+            includeGroup("com.tterrag.registrate")
+            includeGroup("com.simibubi.create")
+        }
+    }
     maven {
-        url "https://cursemaven.com"
+        // Patchouli, JEI
+        name = "BlameJared"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+        // Curse Forge File
+        url "https://cursemaven.com/"
         content {
             includeGroup "curse.maven"
         }
-    } // Curse Forge File
-    maven {
-        name = "Jared's maven"
-        url = "https://maven.blamejared.com/"
-    } // JEI
-    maven { url 'https://jitpack.io' } // MixinExtras
-    maven {
-        // location of a maven mirror for JEI files, as a fallback
-        name = "ModMaven"
-        url = "https://modmaven.dev"
-    } // JEI mirror, AE2
-    maven { url = "https://maven.parchmentmc.org" } // Parchment mappings
-    maven { url = "https://maven.quiltmc.org/repository/release/" } // Quilt Mappings
-    maven { url = "https://maven.firstdarkdev.xyz/snapshots" } // LDLib
-    maven {
-        name = "redlance"
-        url = "https://repo.constructlegacy.ru/public"
     }
     maven {
-        name = "mixin"
-        url = "https://repo.spongepowered.org/repository/maven-public/"
+        // EMI
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
     }
 }
 
 dependencies {
-    minecraft libs.minecraft
-    forge forge.minecraftForge
-
-    // The following line declares the mojmap mappings, you may use other mappings as well
+    minecraft "com.mojang:minecraft:$project.minecraft_version"
+    forge "net.minecraftforge:forge:$project.minecraft_version-$project.forge_version"
+    // layered mappings - Mojmap names, parchment and QM docs and parameters
     mappings loom.layered {
-        it.mappings("org.quiltmc:quilt-mappings:${libs.versions.minecraft.get()}+build.${libs.versions.quiltMappings.get()}:intermediary-v2")
-        it.parchment("org.parchmentmc.data:parchment-${libs.versions.minecraft.get()}:${libs.versions.parchment.get()}@zip")
+        it.mappings("org.quiltmc:quilt-mappings:$project.minecraft_version+build.$project.quilt_mappings:intermediary-v2")
+        it.parchment("org.parchmentmc.data:parchment-$project.minecraft_version:$project.parchment_mappings@zip")
         it.officialMojangMappings { nameSyntheticMembers = false }
     }
 
+    modCompileOnly("mezz.jei:jei-$project.minecraft_version-forge-api:$project.jei_version") { transitive = false }
+    modCompileOnly("mezz.jei:jei-$project.minecraft_version-common-api:$project.jei_version") { transitive = false }
 
+    modImplementation("com.gregtechceu.gtceu:gtceu-$project.minecraft_version:$project.gtceu_version") { transitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-forge-$project.minecraft_version:$project.ldlib_version") { transitive = false }
+    modImplementation("com.tterrag.registrate:Registrate:$project.registrate_version")
+    modImplementation("dev.latvian.mods:kubejs-forge:$project.kubejs_version")
 
-    // LDLib
-    modImplementation(forge.gtceu.forge) { transitive = false }
-    modImplementation(forge.ldlib.forge) { transitive = false }
+    modRuntimeOnly("dev.toma.configuration:configuration-forge-$project.minecraft_version:$project.configuration_version")
+    modRuntimeOnly("mezz.jei:jei-$project.minecraft_version-forge:$project.jei_version") { transitive = false }
 
-    // Registrate
-    modImplementation("com.tterrag.registrate:Registrate:${forge.versions.registrate.get()}")
-
-    // REI
-    modCompileOnly forge.rei.plugin
-    modCompileOnly forge.rei.api
-    modImplementation forge.rei.forge
-
-    // TOP
-    modCompileOnly(forge.theoneprobe) { transitive = false }
-
-    // KJS
-    modImplementation forge.kubejs.forge
-
-    // Configuration
-    modImplementation(forge.configuration)
+    modRuntimeOnly ("dev.emi:emi-forge:$project.emi_version+$project.minecraft_version")
 
     // Mixin Extras
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${forge.versions.mixinExtras.get()}"))
-    api("io.github.llamalad7:mixinextras-forge:${forge.versions.mixinExtras.get()}")
-    // apply a newer mixin AP to fix an issue with building the Lithium mixins
-    implementation(annotationProcessor("org.spongepowered:mixin:${libs.versions.mixin.get()}:processor"))
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:$project.mixinextras_version"))
+    implementation(include("io.github.llamalad7:mixinextras-forge:$project.mixinextras_version"))
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-    // testing mods
-    modCompileOnly forge.radium
 }
 
 processResources {

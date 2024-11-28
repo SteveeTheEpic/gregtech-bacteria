@@ -14,7 +14,7 @@ public class GTBCreativeModeTabs {
     public static RegistryEntry<CreativeModeTab> ITEM = REGISTRATE.defaultCreativeTab(GTBacteria.MOD_ID,
                     builder -> builder.displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(GTBacteria.MOD_ID, REGISTRATE))
                             .icon(GTBItems.BACTERIA_PETRI_DISH::asStack)
-                            .title(Component.literal("Gregtech Bacteria"))
+                            .title(Component.literal("GregTech Bacteria"))
                             .build())
             .register();
 

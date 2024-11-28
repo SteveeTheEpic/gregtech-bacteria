@@ -26,6 +26,7 @@ public class GTBMachines {
 
 
     public static final MultiblockMachineDefinition BACTERIA_BATH = REGISTRATE.multiblock("bacteria_bath", WorkableElectricMultiblockMachine::new)
+            .langValue("Bacteria Bath")
             .rotationState(RotationState.NON_Y_AXIS)
             .appearanceBlock(() -> CASING_STAINLESS_CLEAN.get())
             .recipeType(GTBRecipeTypes.BACTERIA_RECIPES)
@@ -52,28 +53,6 @@ public class GTBMachines {
             .compassSections(GTCompassSections.TIER[LuV])
             .compassNodeSelf()
             .register();
-
-public static final MultiblockMachineDefinition COLLECTOR = REGISTRATE.multiblock("collector", WorkableElectricMultiblockMachine::new)
-        .rotationState(RotationState.NON_Y_AXIS)
-        .appearanceBlock(() -> CASING_STEEL_SOLID.get())
-        .recipeType(GTBRecipeTypes.COLLECTOR)
-        .pattern(definition -> FactoryBlockPattern.start()
-                .aisle("HHHH", "HHHH", "HHHH")
-                .aisle("HHHH", "H  H", "HHHH")
-                .aisle("HHHH", "HCHH", "HHHH")
-                .where('H', blocks(CASING_STEEL_SOLID.get())
-                        .or(autoAbilities(true, false, false))
-                        .or(abilities(PartAbility.EXPORT_ITEMS))
-                        .or(abilities(PartAbility.IMPORT_ITEMS))
-                        .or(abilities(PartAbility.INPUT_ENERGY))
-                        .or(abilities(PartAbility.INPUT_LASER)))
-                .where('C', controller(blocks(definition.getBlock())))
-                .build())
-        .workableCasingRenderer(GTCEu.id("block/casings/solid/machine_casing_solid_steel"),
-                GTCEu.id("block/multiblock/implosion_compressor"))
-        .register();
-
-
 
     public static void init() {
     }

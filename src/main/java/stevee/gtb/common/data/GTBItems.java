@@ -17,7 +17,7 @@ public class GTBItems {
             .register();
 
     public static final ItemEntry<Item> STERILE_PETRI_DISH = REGISTRATE.item("sterile_petri_dish", Item::new)
-            .lang("Starile Petri Dish")
+            .lang("Sterile Petri Dish")
             .defaultModel()
             .register();
 

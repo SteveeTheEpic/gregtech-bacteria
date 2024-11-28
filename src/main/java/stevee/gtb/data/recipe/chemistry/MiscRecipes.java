@@ -22,17 +22,6 @@ public class MiscRecipes {
                 .outputItems(GTBMachines.BACTERIA_BATH, 1)
                 .duration(400).EUt(VA[LuV]).save(provider);
 
-
-        GTRecipeTypes.ASSEMBLY_LINE_RECIPES.recipeBuilder(GTBacteria.id("collector_craft"))
-                .inputItems(GTItems.ELECTRIC_PUMP_ZPM, 64)
-                .inputItems(GTItems.ELECTRIC_MOTOR_ZPM, 64)
-                .inputItems(GTMachines.HULL[7], 16)
-                .inputItems(GTBlocks.CASING_STEEL_SOLID.asItem(), 64)
-                .inputItems(GTItems.QUANTUM_MAINFRAME_ZPM, 4)
-                .inputFluids(GTMaterials.SolderingAlloy.getFluid(12000))
-                .outputItems(GTBMachines.COLLECTOR, 1)
-                .EUt(VA[UV]).duration(800).save(provider);
-
     }
 
 }
